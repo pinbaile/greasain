@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "build": "parcel build ./src/index.html",
+    "postinstall": "node ./node_modules/husky/lib/installer/bin install",
+    "deploy": "git push origin `git subtree split --prefix dist main`:github-pages --force"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
     "parcel": "^2.9.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
     "postcss": "^8.4.24",
@@ -45,5 +48,10 @@
     "react-router-dom": "^6.11.2",
     "typescript": "^5.0.4"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead"
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build"
+    }
+  }
 }

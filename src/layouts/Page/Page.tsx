@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import { Logo, Nav } from '../../components'
+import { Footer, Logo, Nav } from '../../components'
 
 export const Page = () => {
   return (
@@ -14,7 +14,7 @@ export const Page = () => {
       <div className="flex-1">
         <Outlet />
       </div>
-      <div className=""></div>
+      <Footer />
     </div>
   )
 }
