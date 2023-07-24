@@ -50,10 +50,10 @@ export const Footer = () => {
 
   return (
     <div className="flex flex-row items-center justify-between">
-      <h1 className="text-3xl font-bold bg-green-900 mr-2">
+      <h1 className="text-3xl font-karla bg-green-900 mr-2">
         Left {leftFlipperHeld ? 'ON' : ''}
       </h1>
-      <h1 className="text-3xl font-bold bg-green-900 mr-2">
+      <h1 className="text-3xl font-karla bg-green-900 mr-2">
         Right {rightFlipperHeld ? 'ON' : ''}
       </h1>
     </div>

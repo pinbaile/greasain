@@ -26,10 +26,8 @@ export const Logo = () => {
   }, [])
 
   return (
-    <div className="flex flex-row items-center">
-      <h1 className="text-3xl font-bold bg-green-900 mr-2">
-        Pinbaile {spaceHeld ? 'pull' : ' '}
-      </h1>
+    <div className="flex flex-row items-center font-handjet font-normal">
+      <h1 className="text-5xl mr-2">Pinbaile {spaceHeld ? 'pull' : ' '}</h1>
       <div className="w-7 h-7 rounded-2xl bg-white"></div>
     </div>
   )

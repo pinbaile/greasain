@@ -27340,10 +27340,6 @@ const App = ()=>{
                         element: (0, _jsxRuntime.jsx)((0, _pages.Home), {})
                     }),
                     (0, _jsxRuntime.jsx)((0, _reactRouterDom.Route), {
-                        path: "about",
-                        element: (0, _jsxRuntime.jsx)((0, _pages.About), {})
-                    }),
-                    (0, _jsxRuntime.jsx)((0, _reactRouterDom.Route), {
                         path: "events",
                         element: (0, _jsxRuntime.jsx)((0, _pages.Events), {})
                     }),
@@ -33775,7 +33771,7 @@ const Page = ()=>{
         className: "bg-green-900 w-full flex flex-col h-screen text-white p-5 overflow-hidden",
         children: [
             (0, _jsxRuntime.jsxs)("div", {
-                className: "flex flex-row justify-between mb-5",
+                className: "flex flex-col sm:flex-row justify-between mb-5",
                 children: [
                     (0, _jsxRuntime.jsx)((0, _reactRouterDom.Link), {
                         to: "/",
@@ -33785,7 +33781,7 @@ const Page = ()=>{
                 ]
             }),
             (0, _jsxRuntime.jsx)("div", {
-                className: "flex-1",
+                className: "flex-1 font-karla",
                 children: (0, _jsxRuntime.jsx)((0, _reactRouterDom.Outlet), {})
             }),
             (0, _jsxRuntime.jsx)((0, _components.Footer), {})
@@ -33849,10 +33845,10 @@ const Logo = ()=>{
         };
     }, []);
     return (0, _jsxRuntime.jsxs)("div", {
-        className: "flex flex-row items-center",
+        className: "flex flex-row items-center font-handjet font-normal",
         children: [
             (0, _jsxRuntime.jsxs)("h1", {
-                className: "text-3xl font-bold bg-green-900 mr-2",
+                className: "text-5xl mr-2",
                 children: [
                     "Pinbaile ",
                     spaceHeld ? "pull" : " "
@@ -33896,13 +33892,8 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 const Nav = ()=>{
     return (0, _jsxRuntime.jsxs)("nav", {
-        className: "flex flex-row items-center text-md font-bold",
+        className: "flex flex-row items-center text-md font-handjet text-3xl",
         children: [
-            (0, _jsxRuntime.jsx)((0, _reactRouterDom.Link), {
-                to: "about",
-                className: "mr-4",
-                children: "ABOUT"
-            }),
             (0, _jsxRuntime.jsx)((0, _reactRouterDom.Link), {
                 to: "machines",
                 className: "mr-4",
@@ -33982,14 +33973,14 @@ const Footer = ()=>{
         className: "flex flex-row items-center justify-between",
         children: [
             (0, _jsxRuntime.jsxs)("h1", {
-                className: "text-3xl font-bold bg-green-900 mr-2",
+                className: "text-3xl font-karla bg-green-900 mr-2",
                 children: [
                     "Left ",
                     leftFlipperHeld ? "ON" : ""
                 ]
             }),
             (0, _jsxRuntime.jsxs)("h1", {
-                className: "text-3xl font-bold bg-green-900 mr-2",
+                className: "text-3xl font-karla bg-green-900 mr-2",
                 children: [
                     "Right ",
                     rightFlipperHeld ? "ON" : ""
@@ -34042,7 +34033,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 const About = ()=>{
     return (0, _jsxRuntime.jsx)("div", {
         children: (0, _jsxRuntime.jsx)("h1", {
-            className: "text-3xl font-bold",
+            className: "text-3xl",
             children: "About"
         })
     });
@@ -34078,7 +34069,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 const Home = ()=>{
     return (0, _jsxRuntime.jsx)("div", {
         children: (0, _jsxRuntime.jsx)("h1", {
-            className: "text-3xl font-bold",
+            className: "text-3xl",
             children: "Home"
         })
     });
@@ -34112,11 +34103,53 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 const Events = ()=>{
-    return (0, _jsxRuntime.jsx)("div", {
-        children: (0, _jsxRuntime.jsx)("h1", {
-            className: "text-3xl font-bold",
-            children: "Events"
-        })
+    return (0, _jsxRuntime.jsxs)("div", {
+        children: [
+            (0, _jsxRuntime.jsx)("h2", {
+                children: "Events"
+            }),
+            (0, _jsxRuntime.jsx)("p", {
+                className: "max-w-prose",
+                children: "More info on events"
+            }),
+            (0, _jsxRuntime.jsxs)("ul", {
+                children: [
+                    (0, _jsxRuntime.jsxs)("li", {
+                        children: [
+                            "2023.07.26:",
+                            " ",
+                            (0, _jsxRuntime.jsx)("a", {
+                                href: "https://next.matchplay.events/tournaments/109852",
+                                className: "underline underline-offset-2",
+                                children: "Tilted Token 0.3"
+                            })
+                        ]
+                    }),
+                    (0, _jsxRuntime.jsxs)("li", {
+                        children: [
+                            "2023.08.09:",
+                            " ",
+                            (0, _jsxRuntime.jsx)("a", {
+                                href: "https://next.matchplay.events/tournaments/109854",
+                                className: "underline underline-offset-2",
+                                children: "Tilted Token 0.4"
+                            })
+                        ]
+                    }),
+                    (0, _jsxRuntime.jsxs)("li", {
+                        children: [
+                            "2023.08.23:",
+                            " ",
+                            (0, _jsxRuntime.jsx)("a", {
+                                href: "https://next.matchplay.events/tournaments/109855",
+                                className: "underline underline-offset-2",
+                                children: "Tilted Token 1.0 - first IFPA registered tournament"
+                            })
+                        ]
+                    })
+                ]
+            })
+        ]
     });
 };
 _c = Events;
@@ -34148,11 +34181,32 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 const Machines = ()=>{
-    return (0, _jsxRuntime.jsx)("div", {
-        children: (0, _jsxRuntime.jsx)("h1", {
-            className: "text-3xl font-bold",
-            children: "Machines"
-        })
+    return (0, _jsxRuntime.jsxs)("div", {
+        children: [
+            (0, _jsxRuntime.jsx)("h2", {
+                children: "Our Machines"
+            }),
+            (0, _jsxRuntime.jsx)("p", {
+                className: "max-w-prose mb-4",
+                children: "Welcome to Pinbaile, where we take great pride in curating an exceptional collection of pinball machines. Each one has been meticulously chosen to provide you with the ultimate pinball experience. From classic favorites to modern marvels, our machines are ready to challenge and entertain players of all skill levels. Step into our pinball wonderland and let the games begin!"
+            }),
+            (0, _jsxRuntime.jsxs)("ul", {
+                children: [
+                    (0, _jsxRuntime.jsx)("li", {
+                        children: "Foo fighters"
+                    }),
+                    (0, _jsxRuntime.jsx)("li", {
+                        children: "Fish Tales"
+                    }),
+                    (0, _jsxRuntime.jsx)("li", {
+                        children: "The Getaway II"
+                    }),
+                    (0, _jsxRuntime.jsx)("li", {
+                        children: "Roadshow"
+                    })
+                ]
+            })
+        ]
     });
 };
 _c = Machines;
