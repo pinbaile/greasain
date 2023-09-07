@@ -1,8 +1,33 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+
+const pageVariants = {
+  in: {
+    opacity: 1,
+    x: 0
+  },
+  out: {
+    opacity: 0,
+    x: '100vw'
+  }
+}
+
+const pageTransitions = {
+  duration: 0.2,
+  type: 'tween',
+  ease: 'anticipate'
+}
 
 export const Events = () => {
   return (
-    <div>
+    <motion.div
+      className="text-center bg-red-800 h-screen w-screen z-40 absolute"
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransitions}
+    >
       <h2>Events</h2>
       <p className="max-w-prose">More info on events</p>
       <ul>
@@ -34,6 +59,6 @@ export const Events = () => {
           </a>
         </li>
       </ul>
-    </div>
+    </motion.div>
   )
 }

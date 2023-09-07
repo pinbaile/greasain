@@ -32,3 +32,16 @@ export const Logo = () => {
     </div>
   )
 }
+
+export const TextLogo = ({ className }: { className?: string }) => (
+  <div
+    className={className}
+    style={{ border: '0.5px solid #0D206A', borderRadius: '9999px' }}
+  >
+    <div style={{ lineHeight: 1 }}>***</div>
+    <div style={{ lineHeight: 1 }}>********</div>
+    <h1 style={{ letterSpacing: '-0.01rem' }}>*pinbaile*</h1>
+    <div style={{ lineHeight: 1 }}>********</div>
+    <div style={{ lineHeight: 1 }}>***</div>
+  </div>
+)

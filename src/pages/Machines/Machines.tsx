@@ -1,8 +1,33 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+
+const pageVariants = {
+  in: {
+    opacity: 1,
+    x: 0
+  },
+  out: {
+    opacity: 0,
+    x: '-100vw'
+  }
+}
+
+const pageTransitions = {
+  duration: 0.2,
+  type: 'tween',
+  ease: 'anticipate'
+}
 
 export const Machines = () => {
   return (
-    <div>
+    <motion.div
+      className="text-center bg-slate-800 h-screen w-screen z-40 absolute"
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransitions}
+    >
       <h2>Our Machines</h2>
       <p className="max-w-prose mb-4">
         Welcome to Pinbaile, where we take great pride in curating an
@@ -18,6 +43,6 @@ export const Machines = () => {
         <li>The Getaway II</li>
         <li>Roadshow</li>
       </ul>
-    </div>
+    </motion.div>
   )
 }

@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        handjet: ['"Handjet"', 'cursive'],
-        karla: ['"Karla"', 'sans-serif']
+        source: ['"Source Code Pro"', 'monospace'],
+        montserrat: ['"Montserrat"', 'sans-serif']
       }
     }
   },
