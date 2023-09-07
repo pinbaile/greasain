@@ -21,6 +21,7 @@ export const Flipper = ({
       xmlSpace="preserve"
       width={width}
       stroke={stroke}
+      strokeWidth={1}
     >
       <path
         fill={fill}

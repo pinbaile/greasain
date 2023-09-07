@@ -43752,7 +43752,7 @@ _c = Logo;
 const TextLogo = ({ className })=>(0, _jsxRuntime.jsxs)("div", {
         className: className,
         style: {
-            border: "0.5px solid #0D206A",
+            border: "1px solid #0D206A",
             borderRadius: "9999px"
         },
         children: [
@@ -44009,6 +44009,7 @@ const Flipper = ({ className, fill = "none", width = 50, stroke = "none" })=>{
         xmlSpace: "preserve",
         width: width,
         stroke: stroke,
+        strokeWidth: 1,
         children: (0, _jsxRuntime.jsx)("path", {
             fill: fill,
             d: "M9,33l59.9,34c7.4,4.1,14.8-5.2,9-11.5l-47.3-50C22.7-3.1,7.9-1.4,2.3,8.9C-2.5,17.4,0.5,28.2,9,33L9,33z"
@@ -44645,7 +44646,7 @@ const LandingPage = ()=>{
                     (0, _jsxRuntime.jsx)((0, _components.Flipper), {
                         stroke: color,
                         width: 105,
-                        className: "-rotate-6 flex-grow-0"
+                        className: "-rotate-6 flex-grow-0 overflow-visible"
                     }),
                     (0, _jsxRuntime.jsx)((0, _components.TextLogo), {
                         className: "relative -left-4 rotate-12 flex-grow-0 flex-shrink-0 text-sm py-2 font-source italic text-center w-24 border"
@@ -44653,7 +44654,7 @@ const LandingPage = ()=>{
                 ]
             }),
             (0, _jsxRuntime.jsxs)("main", {
-                className: "flex-1 my-10 sm:my-20 overflow-auto",
+                className: "flex-1 mt-10  sm:mt-20 mb-5 overflow-auto",
                 children: [
                     (0, _jsxRuntime.jsx)((0, _components.MachineList), {
                         machines: (0, _constants.MACHINES)

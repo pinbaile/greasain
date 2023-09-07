@@ -36,7 +36,7 @@ export const Logo = () => {
 export const TextLogo = ({ className }: { className?: string }) => (
   <div
     className={className}
-    style={{ border: '0.5px solid #0D206A', borderRadius: '9999px' }}
+    style={{ border: '1px solid #0D206A', borderRadius: '9999px' }}
   >
     <div style={{ lineHeight: 1 }}>***</div>
     <div style={{ lineHeight: 1 }}>********</div>

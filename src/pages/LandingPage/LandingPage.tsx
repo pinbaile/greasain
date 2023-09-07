@@ -29,10 +29,14 @@ export const LandingPage = () => {
       }}
     >
       <header className="flex flex-row gap-4 items-center justify-center sm:justify-start">
-        <Flipper stroke={color} width={105} className="-rotate-6 flex-grow-0" />
+        <Flipper
+          stroke={color}
+          width={105}
+          className="-rotate-6 flex-grow-0 overflow-visible"
+        />
         <TextLogo className="relative -left-4 rotate-12 flex-grow-0 flex-shrink-0 text-sm py-2 font-source italic text-center w-24 border" />
       </header>
-      <main className="flex-1 my-10 sm:my-20 overflow-auto">
+      <main className="flex-1 mt-10  sm:mt-20 mb-5 overflow-auto">
         <MachineList machines={MACHINES} />
         <div className="my-4 sm:my-10">* * *</div>
         {!errorLoadingTournaments && (
