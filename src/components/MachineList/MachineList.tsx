@@ -15,9 +15,14 @@ export const MachineList = ({ machines }: { machines: Machine[] }) => {
                 <span>{`(${machine.manufacturer} ${machine.year})`}</span>
               </a>
               <div className="mt-1 sm:mt-0 flex flex-col sm:flex-row justify-center sm:justify-start items-center sm:gap-2">
-                <a className="text-xs">Location: {machine.location}</a>
+                <a href={machine.locationUrl} className="text-xs">
+                  Location:{' '}
+                  <span className={machine.locationUrl ? 'underline' : ''}>
+                    {machine.location}
+                  </span>
+                </a>
                 <span className="hidden sm:inline">{' * '}</span>
-                <a href={machine.howTo} className="text-xs">
+                <a href={machine.howTo} className="text-xs underline">
                   How to play
                 </a>
               </div>

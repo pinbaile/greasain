@@ -19,7 +19,7 @@ const TournamentListItem = ({ tournament }: { tournament: Tournament }) => {
     <li>
       <a
         className="underline underline-offset-2"
-        href={`https://next.matchplay.events/tournaments/${tournament.tournamentId}`}
+        href={`https://app.matchplay.events/tournaments/${tournament.tournamentId}`}
       >
         {new Intl.DateTimeFormat('en-IE', {
           weekday: 'short',
@@ -42,7 +42,7 @@ export const TournamentList = ({
   const { tiltedTokenTnmts, other } = getTnmtsBySeries(tournaments)
   return (
     <div>
-      <h2 className="text-xs font-montserrat uppercase font-extrabold mb-4">
+      <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2">
         Tournaments
       </h2>
       <h3 className="text-xs font-source font-extrabold italic mb-2">

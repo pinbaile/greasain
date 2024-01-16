@@ -11,6 +11,7 @@ type Machine = {
   year: string
   location: string
   howTo: string
+  locationUrl?: string
 }
 
 type Tournament = {

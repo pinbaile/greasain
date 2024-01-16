@@ -34,7 +34,7 @@ export const Events = () => {
         <li>
           2023.07.26:{' '}
           <a
-            href="https://next.matchplay.events/tournaments/109852"
+            href="https://app.matchplay.events/tournaments/109852"
             className="underline underline-offset-2"
           >
             Tilted Token 0.3
@@ -43,7 +43,7 @@ export const Events = () => {
         <li>
           2023.08.09:{' '}
           <a
-            href="https://next.matchplay.events/tournaments/109854"
+            href="https://app.matchplay.events/tournaments/109854"
             className="underline underline-offset-2"
           >
             Tilted Token 0.4
@@ -52,7 +52,7 @@ export const Events = () => {
         <li>
           2023.08.23:{' '}
           <a
-            href="https://next.matchplay.events/tournaments/109855"
+            href="https://app.matchplay.events/tournaments/109855"
             className="underline underline-offset-2"
           >
             Tilted Token 1.0 - first IFPA registered tournament
