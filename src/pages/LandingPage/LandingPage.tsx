@@ -40,7 +40,7 @@ export const LandingPage = () => {
             CURRENT RANKS
           </h4>
           <ol className="text-xs font-source">
-            <li className="list-decimal list-inside">B.O. - 307,846,830</li>
+            <li className="list-decimal list-inside">B.O. - 828,120,290</li>
             <li className="list-decimal list-inside">S.B. - 30,758,690</li>
             <li className="list-decimal list-inside">A.W. - 3,269,280</li>
             <li className="list-decimal list-inside">T.S. - 3,004,430</li>
