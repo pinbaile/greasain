@@ -27,20 +27,28 @@ export const LandingPage = () => {
           </h2>
           <p className="text-xs font-source mb-4 max-w-prose">
             Send a photo of your best score to us and the highest score at the
-            end of the month wins €50 and a few other suprises.
+            end of the month<span className="align-super">*</span> €50 and a few
+            other suprises.
           </p>
           <h3 className="text-xs font-source font-extrabold italic mb-2">
-            January&apos;s machine
+            January/February 2024 machine
             <br />
-            <span className=" font-normal not-italic">Foo Fighters</span>
+            <span className="font-normal not-italic">Foo Fighters</span>
+            <span className=""></span>
           </h3>
           <h4 className="text-xs font-montserrat uppercase font-extrabold mb-2">
             CURRENT RANKS
           </h4>
           <ol className="text-xs font-source">
-            <li>B.O. - 307,846,830</li>
-            <li>T.S. - 3,004,430</li>
+            <li className="list-decimal list-inside">B.O. - 307,846,830</li>
+            <li className="list-decimal list-inside">S.B. - 30,758,690</li>
+            <li className="list-decimal list-inside">A.W. - 3,269,280</li>
+            <li className="list-decimal list-inside">T.S. - 3,004,430</li>
           </ol>
+          <div className="text-xs font-source italic mt-4">
+            <span className="align-super">*</span>January contest extended
+            through end of February (29.02.2024)
+          </div>
         </div>
         {!errorLoadingTournaments && (
           <>
