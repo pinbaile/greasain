@@ -44298,13 +44298,12 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 const getTnmtsBySeries = (tournaments)=>tournaments.reduce((tnmts, t)=>{
-        if (t.name.includes("Tilted Token")) tnmts.tiltedTokenTnmts = [
-            ...tnmts.tiltedTokenTnmts,
-            t
-        ];
+        if (t.name.includes("Tilted Token")) tnmts.tiltedTokenTnmts.push(t);
+        else if (t.name.includes("Flip-off")) tnmts.fibbersTnmts.push(t);
         return tnmts;
     }, {
         tiltedTokenTnmts: [],
+        fibbersTnmts: [],
         other: []
     });
 const byStartDate = (a, b)=>a.startLocal < b.startLocal ? -1 : a.startLocal > b.startLocal ? 1 : 0;
@@ -44334,7 +44333,7 @@ const TournamentListItem = ({ tournament })=>{
 };
 _c = TournamentListItem;
 const TournamentList = ({ tournaments })=>{
-    const { tiltedTokenTnmts, other } = getTnmtsBySeries(tournaments);
+    const { fibbersTnmts, other } = getTnmtsBySeries(tournaments);
     return (0, _jsxRuntime.jsxs)("div", {
         className: " col-span-2",
         children: [
@@ -44345,31 +44344,7 @@ const TournamentList = ({ tournaments })=>{
             (0, _jsxRuntime.jsxs)("h3", {
                 className: "text-2xl tracking-tight leading-6 font-source font-extrabold mb-2",
                 children: [
-                    "BRAY DAY AWAY IN MAY",
-                    (0, _jsxRuntime.jsx)("br", {}),
-                    (0, _jsxRuntime.jsx)("span", {
-                        className: "text-lg",
-                        children: "May 25th, 2024 - 1PM"
-                    }),
-                    (0, _jsxRuntime.jsx)("br", {})
-                ]
-            }),
-            (0, _jsxRuntime.jsxs)("p", {
-                className: "mb-8 font-normal leading-6 not-italic text-md",
-                children: [
-                    "Our first annual trip to Bray for a showdown at...",
-                    (0, _jsxRuntime.jsx)("br", {}),
-                    (0, _jsxRuntime.jsx)("span", {
-                        className: "font-semibold",
-                        children: "Bray Bowl: "
-                    }),
-                    "Quinsborough Rd, Bray, Co. Wicklow, A98 E6X4"
-                ]
-            }),
-            (0, _jsxRuntime.jsxs)("h3", {
-                className: "text-2xl tracking-tight leading-6 font-source font-extrabold mb-2",
-                children: [
-                    "TILTED TOKEN",
+                    "FLIP-OFF @ FIBBERS",
                     (0, _jsxRuntime.jsx)("br", {}),
                     (0, _jsxRuntime.jsx)("span", {
                         className: "text-lg",
@@ -44381,13 +44356,19 @@ const TournamentList = ({ tournaments })=>{
             (0, _jsxRuntime.jsxs)("p", {
                 className: "mb-2 font-normal leading-6 not-italic text-md",
                 children: [
-                    "Head-to-head 3 strike tournament held every other week at...",
+                    "Group knockout 3 strike tournament held every other week at...",
                     (0, _jsxRuntime.jsx)("br", {}),
                     (0, _jsxRuntime.jsx)("span", {
                         className: "font-semibold",
-                        children: "Token: "
+                        children: "Fibber Magees: "
                     }),
-                    "Address: 72-74 Queen St, Smithfield, Dublin 7",
+                    (0, _jsxRuntime.jsx)("a", {
+                        href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x48670e86ef8eb32f:0xa9e461e298020e37?sa=X&ved=1t:8290&ictx=111",
+                        className: "cursor-pointer underline",
+                        children: (0, _jsxRuntime.jsx)("span", {
+                            children: "80-81 Parnell St, Rotunda, Dublin 1, D01 CK74"
+                        })
+                    }),
                     (0, _jsxRuntime.jsx)("br", {}),
                     (0, _jsxRuntime.jsx)("span", {
                         className: "font-semibold block mt-2",
@@ -44397,7 +44378,7 @@ const TournamentList = ({ tournaments })=>{
             }),
             (0, _jsxRuntime.jsx)("ul", {
                 className: "font-source space-y-2 text-xs sm:text-sm",
-                children: tiltedTokenTnmts.sort(byStartDate).map((t)=>{
+                children: fibbersTnmts.sort(byStartDate).map((t)=>{
                     return (0, _jsxRuntime.jsx)(TournamentListItem, {
                         tournament: t
                     }, t.name);

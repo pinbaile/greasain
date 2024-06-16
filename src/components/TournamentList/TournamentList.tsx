@@ -2,13 +2,22 @@ import React from 'react'
 
 const getTnmtsBySeries = (tournaments: Tournament[]) =>
   tournaments.reduce(
-    (tnmts: { tiltedTokenTnmts: Tournament[]; other: Tournament[] }, t) => {
+    (
+      tnmts: {
+        tiltedTokenTnmts: Tournament[]
+        fibbersTnmts: Tournament[]
+        other: Tournament[]
+      },
+      t
+    ) => {
       if (t.name.includes('Tilted Token')) {
-        tnmts.tiltedTokenTnmts = [...tnmts.tiltedTokenTnmts, t]
+        tnmts.tiltedTokenTnmts.push(t)
+      } else if (t.name.includes('Flip-off')) {
+        tnmts.fibbersTnmts.push(t)
       }
       return tnmts
     },
-    { tiltedTokenTnmts: [], other: [] }
+    { tiltedTokenTnmts: [], fibbersTnmts: [], other: [] }
   )
 
 const byStartDate = (a: Tournament, b: Tournament) =>
@@ -40,39 +49,33 @@ export const TournamentList = ({
 }: {
   tournaments: Tournament[]
 }) => {
-  const { tiltedTokenTnmts, other } = getTnmtsBySeries(tournaments)
+  const { fibbersTnmts, other } = getTnmtsBySeries(tournaments)
   return (
     <div className=" col-span-2">
       <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2">
         Tournaments
       </h2>
       <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-2">
-        BRAY DAY AWAY IN MAY
-        <br />
-        <span className="text-lg">May 25th, 2024 - 1PM</span>
-        <br />
-      </h3>
-      <p className="mb-8 font-normal leading-6 not-italic text-md">
-        Our first annual trip to Bray for a showdown at...
-        <br />
-        <span className="font-semibold">Bray Bowl: </span>Quinsborough Rd, Bray,
-        Co. Wicklow, A98 E6X4
-      </p>
-      <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-2">
-        TILTED TOKEN
+        FLIP-OFF @ FIBBERS
         <br />
         <span className="text-lg">Every other Wednesday - 7PM</span>
         <br />
       </h3>
       <p className="mb-2 font-normal leading-6 not-italic text-md">
-        Head-to-head 3 strike tournament held every other week at...
+        Group knockout 3 strike tournament held every other week at...
         <br />
-        <span className="font-semibold">Token: </span>Address: 72-74 Queen St,
-        Smithfield, Dublin 7<br />
+        <span className="font-semibold">Fibber Magees: </span>
+        <a
+          href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x48670e86ef8eb32f:0xa9e461e298020e37?sa=X&amp;ved=1t:8290&amp;ictx=111"
+          className="cursor-pointer underline"
+        >
+          <span>80-81 Parnell St, Rotunda, Dublin 1, D01 CK74</span>
+        </a>
+        <br />
         <span className="font-semibold block mt-2">Next meets: </span>
       </p>
       <ul className="font-source space-y-2 text-xs sm:text-sm">
-        {tiltedTokenTnmts.sort(byStartDate).map((t) => {
+        {fibbersTnmts.sort(byStartDate).map((t) => {
           return <TournamentListItem tournament={t} key={t.name} />
         })}
       </ul>
