@@ -25,3 +25,5 @@ interface FetchedData<T> {
   isLoading: boolean
   isError: boolean
 }
+
+declare module '*.jpg'

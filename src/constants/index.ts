@@ -24,7 +24,7 @@ export const MACHINES: Machine[] = [
     url: 'https://www.ipdb.org/machine.cgi?id=1000',
     manufacturer: 'Williams',
     year: '1992',
-    location: 'Fibber Magees',
+    location: "Murray's Bar",
     howTo: 'https://www.youtube.com/watch?v=Elz5Ksr4Tzk',
     locationUrl:
       'https://www.google.com/maps/place/Fibber+Magees/@53.3529458,-6.2603666,15z/data=!4m2!3m1!1s0x0:0xa9e461e298020e37?sa=X&ved=2ahUKEwjg5oDV1-GDAxW6TUEAHYbsAH8Q_BJ6BAgTEAA'
@@ -34,15 +34,19 @@ export const MACHINES: Machine[] = [
     url: 'https://www.ipdb.org/machine.cgi?id=861',
     manufacturer: 'Williams',
     year: '1992',
-    location: 'The shed',
-    howTo: 'https://www.youtube.com/watch?v=60a_nKnEdUA'
+    location: 'Fibber Magees',
+    howTo: 'https://www.youtube.com/watch?v=60a_nKnEdUA',
+    locationUrl:
+      'https://www.google.com/maps/place/Fibber+Magees/@53.3529458,-6.2603666,15z/data=!4m2!3m1!1s0x0:0xa9e461e298020e37?sa=X&ved=2ahUKEwjg5oDV1-GDAxW6TUEAHYbsAH8Q_BJ6BAgTEAA'
   },
   {
-    name: "Red & Ted's Road Show",
-    url: 'https://www.ipdb.org/machine.cgi?id=1972',
-    manufacturer: 'Williams',
-    year: '1994',
-    location: 'The shed',
-    howTo: 'https://www.youtube.com/watch?v=vEl6ywIOfdc'
+    name: 'Who Dunnit?',
+    url: 'https://www.ipdb.org/machine.cgi?id=3685',
+    manufacturer: 'Bally',
+    year: '1995',
+    location: 'Fibber Magees',
+    howTo: 'https://www.youtube.com/watch?v=wM5nkmtDcx8',
+    locationUrl:
+      'https://www.google.com/maps/place/Fibber+Magees/@53.3529458,-6.2603666,15z/data=!4m2!3m1!1s0x0:0xa9e461e298020e37?sa=X&ved=2ahUKEwjg5oDV1-GDAxW6TUEAHYbsAH8Q_BJ6BAgTEAA'
   }
 ]
