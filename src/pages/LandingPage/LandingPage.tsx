@@ -2,7 +2,7 @@ import React from 'react'
 import { MachineList, PinbaileLogo, TournamentList } from '../../components'
 import { useData } from '../../api'
 import { MACHINES } from '../../constants'
-import pinbaileCupPoster from '../../images/pinbaile-cup-poster.jpg'
+import santaPoster from '../../images/xmas-party.jpg'
 export const LandingPage = () => {
   const { data: tournaments, isError: errorLoadingTournaments } = useData<
     Tournament[]
@@ -29,7 +29,7 @@ export const LandingPage = () => {
         )}
         <div className="col-span-1 hidden xl:block">
           <a href="https://app.matchplay.events/tournaments/149990">
-            <img className="w-1/4 xl:w-2/3" src={pinbaileCupPoster} />
+            <img className="w-1/4 xl:w-2/3" src={santaPoster} />
           </a>
         </div>
       </main>

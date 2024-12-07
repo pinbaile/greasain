@@ -1,5 +1,6 @@
 import React from 'react'
-import pinbaileCupPoster from '../../images/pinbaile-cup-poster.jpg'
+import santaPoster from '../../images/xmas-party.jpg'
+import iecsLogo from '../../images/ifpa-irish-championship-series.jpg'
 
 const getTnmtsBySeries = (tournaments: Tournament[]) =>
   tournaments.reduce(
@@ -57,52 +58,78 @@ export const TournamentList = ({
         Tournaments
       </h2>
       <div className="col-span-1 xl:hidden my-4">
-        <a href="https://app.matchplay.events/tournaments/149990">
-          <img className="md:w-2/5 xl:w-2/3" src={pinbaileCupPoster} />
+        <a href="http://matchplay.live/santa-knockout">
+          <img className="md:w-2/5 xl:w-2/3" src={santaPoster} />
         </a>
       </div>
       <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-2">
-        THE PINBAILE CUP
+        PINBAILE SANTA KNOCKOUT
         <br />
-        <span className="text-lg">October 12th, 2024 - 12:30PM</span>
+        <span className="text-lg">December 18th, 2024 - 7:00PM</span>
         <br />
       </h3>
       <p className="mb-6 font-normal leading-6 not-italic text-md">
-        Our special birthday tournament at where it all began...
+        A special Christmas strike knockout tournament. Every entry goes home
+        with a prize on elimination. We&apos;ll also be giving away a Teenage
+        Mutant Ninja Turtles translite to one lucky player.
         <br />
-        <span className="font-semibold">Fibber Magees: </span>
-        <a
-          href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x48670e86ef8eb32f:0xa9e461e298020e37?sa=X&amp;ved=1t:8290&amp;ictx=111"
-          className="cursor-pointer underline"
-        >
-          <span>80-81 Parnell St, Rotunda, Dublin 1, D01 CK74</span>
-        </a>
+        <br />
+        <span>
+          <span className="font-semibold">Entry:</span> One wrapped gift worth
+          €5
+        </span>
+        <br />
+        <span>
+          <span className="font-semibold">Location:</span>{' '}
+          <a
+            href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x48670e86ef8eb32f:0xa9e461e298020e37?sa=X&amp;ved=1t:8290&amp;ictx=111"
+            className="cursor-pointer underline"
+          >
+            Fibber Magees
+          </a>
+        </span>
         <br />
         <a
           className="font-semibold underline"
-          href="https://app.matchplay.events/tournaments/149990"
+          href="http://matchplay.live/santa-knockout"
         >
           REGISTER NOW
         </a>
       </p>
+      <div className="col-span-1 xl:hidden my-4">
+        <a href="http://matchplay.live/2024-all-ireland">
+          <img className="md:w-2/5 xl:w-2/3 w-full" src={iecsLogo} />
+        </a>
+      </div>
       <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-2">
-        BRAYVEMBER
+        2024 IRISH CHAMPIONSHIP SERIES FINALS
         <br />
-        <span className="text-lg">November 23th, 2024 - 1PM</span>
+        <span className="text-lg">January 11th, 2025 - 12:30PM</span>
         <br />
       </h3>
       <p className="mb-8 font-normal leading-6 not-italic text-md">
-        Our second annual trip to Bray for a showdown at...
-        <br />
-        <span className="font-semibold">Bray Bowl: </span>Quinsborough Rd, Bray,
-        Co. Wicklow, A98 E6X4
-        <br />
+        The top 16 ranked players in Ireland meet to compete for the title of
+        2024 Irish Pinball Champion. You can view the rankings{' '}
         <a
           className="font-semibold underline"
-          href="https://app.matchplay.events/tournaments/149987"
+          href="https://www.ifpapinball.com/rankings/custom_view.php?id=404"
         >
-          REGISTER NOW
+          here
         </a>
+        <br />
+        <span>
+          <span className="font-semibold">Entry:</span> €20 - INVITATION ONLY
+        </span>
+        <br />
+        <span>
+          <span className="font-semibold">Location:</span>{' '}
+          <a
+            href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x48670e86ef8eb32f:0xa9e461e298020e37?sa=X&amp;ved=1t:8290&amp;ictx=111"
+            className="cursor-pointer underline"
+          >
+            Fibber Magees
+          </a>
+        </span>
       </p>
       <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-2">
         FLIP-OFF @ FIBBERS
@@ -122,6 +149,7 @@ export const TournamentList = ({
         </a>
         <br />
         <span className="font-semibold block mt-2">Next meets: </span>
+        {fibbersTnmts.length === 0 && `New schedule coming soon`}
       </p>
       <ul className="font-source space-y-2 text-xs sm:text-sm">
         {fibbersTnmts.sort(byStartDate).map((t) => {
