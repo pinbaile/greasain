@@ -28,7 +28,7 @@ export const LandingPage = () => {
           </>
         )}
         <div className="col-span-1 hidden xl:block">
-          <a href="https://app.matchplay.events/tournaments/149990">
+          <a href="http://matchplay.live/santa-knockout">
             <img className="w-1/4 xl:w-2/3" src={santaPoster} />
           </a>
         </div>
