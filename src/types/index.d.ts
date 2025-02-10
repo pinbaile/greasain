@@ -18,6 +18,7 @@ type Tournament = {
   startLocal: string
   name: string
   tournamentId: string
+  organizerId: number
 }
 
 interface FetchedData<T> {

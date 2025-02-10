@@ -4,6 +4,13 @@ export const MachineList = ({ machines }: { machines: Machine[] }) => {
   return (
     <div>
       <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2">
+        Who we are
+      </h2>
+      <p className="mb-10 md:w-2/3">
+        A pinball collective on a mission to grow competitive and social pinball
+        in Ireland.
+      </p>
+      <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2">
         Our Machines
       </h2>
       <ul className="font-source space-y-6 sm:space-y-4 sm:text-base">

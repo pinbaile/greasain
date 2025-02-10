@@ -1,53 +1,78 @@
 import React from 'react'
-
-const getTnmtsBySeries = (tournaments: Tournament[]) =>
-  tournaments.reduce(
-    (
-      tnmts: {
-        tiltedTokenTnmts: Tournament[]
-        fibbersTnmts: Tournament[]
-        other: Tournament[]
-      },
-      t
-    ) => {
-      if (t.name.includes('Tilted Token')) {
-        tnmts.tiltedTokenTnmts.push(t)
-      } else if (t.name.includes('Flip-off')) {
-        tnmts.fibbersTnmts.push(t)
-      }
-      return tnmts
-    },
-    { tiltedTokenTnmts: [], fibbersTnmts: [], other: [] }
-  )
+import { useData } from '../../api'
 
 const byStartDate = (a: Tournament, b: Tournament) =>
   a.startLocal < b.startLocal ? -1 : a.startLocal > b.startLocal ? 1 : 0
 
+const matchplayHeaders = {
+  Authorization: 'Bearer 122|OtQ4qQBnH36Lz9rrUNhhjdkpeFHWZyqkD4vt3smA6abc6c7d',
+  'Content-Type': 'application/json',
+  Accept: 'application/json'
+}
+
 const TournamentListItem = ({ tournament }: { tournament: Tournament }) => {
+  const date = new Date(tournament.startLocal)
+  const day = new Intl.DateTimeFormat('en-IE', {
+    weekday: 'short'
+  }).format(date)
+  const dayNumber = new Intl.DateTimeFormat('en-IE', {
+    day: 'numeric'
+  }).format(date)
+  const time = new Intl.DateTimeFormat('en-IE', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true
+  }).format(new Date(tournament.startLocal))
+
   return (
-    <li className="">
+    <li className="mt-4">
       <a
-        className="underline underline-offset-2"
+        className="cursor-pointer transition-colors group"
         href={`https://app.matchplay.events/tournaments/${tournament.tournamentId}`}
       >
-        {new Intl.DateTimeFormat('en-IE', {
-          weekday: 'long',
-          day: 'numeric',
-          hour: 'numeric',
-          minute: 'numeric',
-          hour12: true
-        }).format(new Date(tournament.startLocal))}
+        <div className="flex flex-row gap-2 border border-white group-hover:border-red-500 cursor-pointer transition-colors">
+          <div className="font-bold flex-grow-0 flex flex-col gap-0 leading-none p-2 bg-white group-hover:bg-red-500 transition-colors text-black">
+            <span>{day.toUpperCase()}</span>
+            <span className="text-xl">{dayNumber}</span>
+            <span>{time.toUpperCase()}</span>
+          </div>
+          <div className="text-lg flex-1 flex-grow p-2">
+            {tournament.name}{' '}
+            {tournament.organizerId === 30148 && " - Women's tournament"}
+          </div>
+        </div>
+        <div className="border font-bold border-white group-hover:border-red-500 transition-colors  border-t-0 p-1 text-center">
+          REGISTER
+        </div>
       </a>
     </li>
   )
 }
-export const TournamentList = ({
-  tournaments
-}: {
-  tournaments: Tournament[]
-}) => {
-  const { fibbersTnmts, other } = getTnmtsBySeries(tournaments)
-  const tournamentsByMonth2025 = fibbersTnmts
+export const TournamentList = () => {
+  const openTournamentData = useData<Tournament[]>(
+    'https://app.matchplay.events/api/tournaments?owner=9817&status=planned&page=2',
+    matchplayHeaders
+  )
+  const openTournamentData2 = useData<Tournament[]>(
+    'https://app.matchplay.events/api/tournaments?owner=9817&status=planned',
+    matchplayHeaders
+  )
+  const {
+    data: womensTournaments = [],
+    isLoading: loadingWomensTournaments,
+    isError: errorLoadingWomensTournaments
+  } = useData<Tournament[]>(
+    'https://app.matchplay.events/api/tournaments?owner=30148&status=planned',
+    matchplayHeaders
+  )
+
+  const allTournaments = [
+    ...(openTournamentData.data || []),
+    ...(openTournamentData2.data || []),
+    ...womensTournaments
+  ]
+
+  const tournamentsByMonth2025 = [...allTournaments]
     .sort(byStartDate)
     .reduce<Record<string, Tournament[]>>((acc, tnmt) => {
       const tnmtDate = new Date(tnmt.startLocal)
@@ -64,57 +89,47 @@ export const TournamentList = ({
       return acc
     }, {})
 
+  const errorLoadingTournaments =
+    openTournamentData.isError || openTournamentData2.isError
+  const loading =
+    openTournamentData.isLoading ||
+    openTournamentData2.isLoading ||
+    loadingWomensTournaments
+
   return (
     <div className="col-span-1 xl:col-span-2">
       <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2">
         Tournaments
       </h2>
-      <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-2">
-        FLIP-OFF @ FIBBERS
-        <br />
-        <span className="text-lg">Every other Wednesday - 7PM</span>
-        <br />
+      <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-4">
+        2025 Calendar
       </h3>
-      <p className="mb-2 font-normal leading-6 not-italic text-md">
-        Group knockout 3 strike tournament held every other week at...
-        <br />
-        <span className="font-semibold">Fibber Magees: </span>
-        <a
-          href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x48670e86ef8eb32f:0xa9e461e298020e37?sa=X&amp;ved=1t:8290&amp;ictx=111"
-          className="cursor-pointer underline"
-        >
-          <span>80-81 Parnell St, Rotunda, Dublin 1, D01 CK74</span>
-        </a>
-        <br />
-        <div className="xl:hidden mt-6">* * *</div>
-        <span className="font-semibold block mt-4 text-left">
-          2025 Schedule:{' '}
-        </span>
-        {fibbersTnmts.length === 0 && `...`}
-      </p>
-      <ul className="font-source text-md sm:text-sm grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {Object.entries(tournamentsByMonth2025).map(([month, tournaments]) => {
-          return (
-            <div key={month} className="text-left">
-              <h3 className="font-semibold">{month}</h3>
-              {tournaments.map((t) => {
-                return <TournamentListItem tournament={t} key={t.name} />
-              })}
-            </div>
-          )
-        })}
-      </ul>
-      {other.length > 0 && (
-        <>
-          <h3 className="text-xs font-source font-extrabold italic mb-2">
-            Other
-          </h3>
-          <ul className="font-source space-y-2 text-xs sm:text-sm">
-            {other.sort(byStartDate).map((t) => {
-              return <TournamentListItem tournament={t} key={t.name} />
-            })}
-          </ul>
-        </>
+      {errorLoadingTournaments && (
+        <p className="text-red-600 mb-2">
+          We had issues fetching our open tournaments
+        </p>
+      )}
+      {errorLoadingWomensTournaments && (
+        <p className="text-red-600 mb-2">
+          We had issues fetching our women&apos;s tournaments
+        </p>
+      )}
+      {loading && <>Loading tournaments...</>}
+      {!loading && !!allTournaments.length && (
+        <ul className="font-source text-md sm:text-sm grid sm:grid-cols-2 xl:grid-cols-3 gap-4 gap-y-10">
+          {Object.entries(tournamentsByMonth2025).map(
+            ([month, tournaments]) => {
+              return (
+                <div key={month} className="text-left">
+                  <h3 className="font-semibold text-lg">{month}</h3>
+                  {tournaments.map((t) => {
+                    return <TournamentListItem tournament={t} key={t.name} />
+                  })}
+                </div>
+              )
+            }
+          )}
+        </ul>
       )}
       <div className="xl:hidden mt-6">* * *</div>
     </div>
