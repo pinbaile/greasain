@@ -1,6 +1,3 @@
 export * from './Logo'
-export * from './Nav'
-export * from './Flipper'
-export * from './Footer'
 export * from './MachineList'
 export * from './TournamentList'

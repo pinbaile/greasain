@@ -9,9 +9,13 @@ type Machine = {
   url: string
   manufacturer: string
   year: string
-  location: string
+  location: MachineLocation
   howTo: string
-  locationUrl?: string
+}
+
+type MachineLocation = {
+  name: string
+  url: string
 }
 
 type Tournament = {

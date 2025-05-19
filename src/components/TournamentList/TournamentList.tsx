@@ -97,12 +97,12 @@ export const TournamentList = () => {
     loadingWomensTournaments
 
   return (
-    <div className="col-span-1 xl:col-span-2">
+    <div className="col-span-1 xl:col-span-2 mt-6 lg:mt-0">
       <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2">
-        Tournaments
+        Pinball Tournaments
       </h2>
       <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-4">
-        2025 Calendar
+        2025 Event Calendar - All skill levels welcome!
       </h3>
       {errorLoadingTournaments && (
         <p className="text-red-600 mb-2">
@@ -131,7 +131,6 @@ export const TournamentList = () => {
           )}
         </ul>
       )}
-      <div className="xl:hidden mt-6">* * *</div>
     </div>
   )
 }
