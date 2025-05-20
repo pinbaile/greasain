@@ -36,8 +36,18 @@ export const MachineList = ({
           @pinbaile on Instagram
         </a>
       </p>
-      <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2">
-        Our Locations
+      <a
+        href="https://pinballmap.com/operators?by_operator_id=555"
+        target="_blank"
+        className="group w-auto inline-block"
+        rel="noreferrer"
+      >
+        <div className="h-full text-2xl font-bold px-6 py-2.5 divide-x-2 relative flex border-2 border-black bg-white text-black transition-all duration-150 [box-shadow:5px_5px_rgb(255_255_255)] active:translate-x-[3px] active:translate-y-[3px] active:[box-shadow:0px_0px_rgb(0_0_0)]">
+          FIND US ON THE PINBALL MAP
+        </div>
+      </a>
+      <h2 className="text-xs font-montserrat uppercase font-extrabold  mt-10 mb-2">
+        Our Pinball Locations
       </h2>
       <ul className="font-source space-y-6 sm:space-y-4 sm:text-xl">
         {locations.map((loc) => {
@@ -51,9 +61,11 @@ export const MachineList = ({
                 className="underline underline-offset-2 font-bold"
                 target="_blank"
                 rel="noreferrer"
-              >{`${loc.name} - ${pinCount} ${
-                pinCount === 1 ? 'pin' : 'pins'
-              }`}</a>
+              >
+                <h3>{`${loc.name} - ${pinCount} ${
+                  pinCount === 1 ? 'pinball machine' : 'pinball machines'
+                }`}</h3>
+              </a>
               <ul className=" list-disc list-inside font-source space-y-2 sm:space-y-2 sm:text-base mt-3">
                 {pins.map((machine) => {
                   return (
@@ -75,58 +87,6 @@ export const MachineList = ({
           )
         })}
       </ul>
-      {/* <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2 mt-10">
-        Our Pinballs
-      </h2>
-      <ul className="font-source space-y-6 sm:space-y-4 sm:text-base">
-        {[...machines]
-          .sort((m1, m2) => {
-            if (m1.location.name < m2.location.name) {
-              return -1
-            }
-            if (m1.location.name > m2.location.name) {
-              return 1
-            }
-            return 0
-          })
-          .map((machine) => {
-            return (
-              <li key={machine.name}>
-                <a
-                  href={machine.url}
-                  className="underline underline-offset-2"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span>{machine.name}&nbsp;</span>
-                  <span>{`(${machine.manufacturer} ${machine.year})`}</span>
-                </a>
-                <div className="mt-1 sm:mt-0 flex flex-col sm:flex-row justify-center sm:justify-start items-center sm:gap-2">
-                  <a
-                    href={machine.location.url}
-                    className="text-sm"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Location:{' '}
-                    <span className={machine.location.url ? 'underline' : ''}>
-                      {machine.location.name}
-                    </span>
-                  </a>
-                  <span className="hidden sm:inline">{' * '}</span>
-                  <a
-                    href={machine.howTo}
-                    className="text-sm underline"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    How to play
-                  </a>
-                </div>
-              </li>
-            )
-          })}
-      </ul> */}
     </div>
   )
 }

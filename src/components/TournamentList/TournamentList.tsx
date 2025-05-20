@@ -36,10 +36,10 @@ const TournamentListItem = ({ tournament }: { tournament: Tournament }) => {
             <span className="text-xl">{dayNumber}</span>
             <span>{time.toUpperCase()}</span>
           </div>
-          <div className="text-lg flex-1 flex-grow p-2">
+          <h5 className="text-lg flex-1 flex-grow p-2">
             {tournament.name}{' '}
             {tournament.organizerId === 30148 && " - Women's tournament"}
-          </div>
+          </h5>
         </div>
         <div className="border font-bold border-white group-hover:border-red-500 transition-colors  border-t-0 p-1 text-center">
           REGISTER
@@ -99,10 +99,10 @@ export const TournamentList = () => {
   return (
     <div className="col-span-1 xl:col-span-2 mt-6 lg:mt-0">
       <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2">
-        Pinball Tournaments
+        Our Pinball Events
       </h2>
       <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-4">
-        2025 Event Calendar - All skill levels welcome!
+        2025 Pinball Event Calendar - All skill levels welcome!
       </h3>
       {errorLoadingTournaments && (
         <p className="text-red-600 mb-2">
@@ -121,7 +121,7 @@ export const TournamentList = () => {
             ([month, tournaments]) => {
               return (
                 <div key={month} className="text-left">
-                  <h3 className="font-semibold text-lg">{month}</h3>
+                  <h4 className="font-semibold text-lg">{month}</h4>
                   {tournaments.map((t) => {
                     return <TournamentListItem tournament={t} key={t.name} />
                   })}
