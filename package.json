@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "parcel serve ./src/index.html",
-    "build": "parcel build ./src/index.html",
+    "build": "parcel build ./src/index.html && npm run postbuild",
+    "postbuild": "copy public\\robots.txt dist\\ /Y && copy public\\sitemap.xml dist\\ /Y",
     "postinstall": "node ./node_modules/husky/lib/installer/bin install",
     "deploy": "git push origin `git subtree split --prefix dist main`:github-pages --force"
   },

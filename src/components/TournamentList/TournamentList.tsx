@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useData } from '../../api'
 
 const byStartDate = (a: Tournament, b: Tournament) =>
@@ -15,6 +15,9 @@ const TournamentListItem = ({ tournament }: { tournament: Tournament }) => {
   const day = new Intl.DateTimeFormat('en-IE', {
     weekday: 'short'
   }).format(date)
+  const month = new Intl.DateTimeFormat('en-IE', {
+    month: 'short'
+  }).format(date)
   const dayNumber = new Intl.DateTimeFormat('en-IE', {
     day: 'numeric'
   }).format(date)
@@ -25,7 +28,7 @@ const TournamentListItem = ({ tournament }: { tournament: Tournament }) => {
   }).format(new Date(tournament.startLocal))
 
   return (
-    <li className="mt-4">
+    <li>
       <a
         className="cursor-pointer transition-colors group"
         href={`https://app.matchplay.events/tournaments/${tournament.tournamentId}`}
@@ -33,7 +36,9 @@ const TournamentListItem = ({ tournament }: { tournament: Tournament }) => {
         <div className="flex flex-row gap-2 border border-white group-hover:border-red-500 cursor-pointer transition-colors">
           <div className="font-bold flex-grow-0 flex flex-col gap-0 leading-none p-2 bg-white group-hover:bg-red-500 transition-colors text-black">
             <span>{day.toUpperCase()}</span>
-            <span className="text-xl">{dayNumber}</span>
+            <span className="text-lg uppercase">
+              {month} {dayNumber}
+            </span>
             <span>{time.toUpperCase()}</span>
           </div>
           <h5 className="text-lg flex-1 flex-grow p-2">
@@ -49,6 +54,7 @@ const TournamentListItem = ({ tournament }: { tournament: Tournament }) => {
   )
 }
 export const TournamentList = () => {
+  const [showAllTournaments, setShowAllTournaments] = useState(false)
   const openTournamentData = useData<Tournament[]>(
     'https://app.matchplay.events/api/tournaments?owner=9817&status=planned&page=2',
     matchplayHeaders
@@ -72,22 +78,10 @@ export const TournamentList = () => {
     ...womensTournaments
   ]
 
-  const tournamentsByMonth2025 = [...allTournaments]
+  const touramentsToShow = showAllTournaments ? allTournaments.length : 3
+  const tournaments = [...allTournaments]
     .sort(byStartDate)
-    .reduce<Record<string, Tournament[]>>((acc, tnmt) => {
-      const tnmtDate = new Date(tnmt.startLocal)
-      if (tnmtDate.getFullYear() !== 2025) {
-        return acc
-      }
-      const month = tnmtDate.toLocaleString('default', { month: 'long' })
-
-      if (!acc[month]) {
-        acc[month] = [tnmt]
-      } else {
-        acc[month].push(tnmt)
-      }
-      return acc
-    }, {})
+    .slice(0, touramentsToShow)
 
   const errorLoadingTournaments =
     openTournamentData.isError || openTournamentData2.isError
@@ -97,7 +91,7 @@ export const TournamentList = () => {
     loadingWomensTournaments
 
   return (
-    <div className="col-span-1 xl:col-span-2 mt-6 lg:mt-0">
+    <div className="mb-6">
       <h2 className="text-xs font-montserrat uppercase font-extrabold mb-2">
         Our Pinball Events
       </h2>
@@ -116,21 +110,30 @@ export const TournamentList = () => {
       )}
       {loading && <>Loading tournaments...</>}
       {!loading && !!allTournaments.length && (
-        <ul className="font-source text-md sm:text-sm grid sm:grid-cols-2 xl:grid-cols-3 gap-4 gap-y-10">
-          {Object.entries(tournamentsByMonth2025).map(
-            ([month, tournaments]) => {
-              return (
-                <div key={month} className="text-left">
-                  <h4 className="font-semibold text-lg">{month}</h4>
-                  {tournaments.map((t) => {
-                    return <TournamentListItem tournament={t} key={t.name} />
-                  })}
-                </div>
-              )
-            }
-          )}
+        <ul className="font-source text-md sm:text-sm grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
+          {tournaments.map((t) => {
+            return <TournamentListItem tournament={t} key={t.tournamentId} />
+          })}
         </ul>
       )}
+      {!loading &&
+        !!allTournaments.length &&
+        allTournaments.length > 3 &&
+        !showAllTournaments && (
+          <div className="flex flex-row xl:items-center xl:justify-center mt-5">
+            <button
+              onClick={() => {
+                setShowAllTournaments(true)
+              }}
+              className="group w-auto inline-block"
+              rel="noreferrer"
+            >
+              <div className="h-full text-xl  font-bold px-6 py-2.5 divide-x-2 relative flex border-2 border-black bg-white text-black transition-all duration-150 [box-shadow:5px_5px_rgb(255_255_255)] active:translate-x-[3px] active:translate-y-[3px] active:[box-shadow:0px_0px_rgb(0_0_0)]">
+                SHOW ALL EVENTS
+              </div>
+            </button>
+          </div>
+        )}
     </div>
   )
 }
