@@ -41,10 +41,10 @@ const TournamentListItem = ({ tournament }: { tournament: Tournament }) => {
             </span>
             <span>{time.toUpperCase()}</span>
           </div>
-          <h5 className="text-lg flex-1 flex-grow p-2">
+          <h4 className="text-lg flex-1 flex-grow p-2">
             {tournament.name}{' '}
             {tournament.organizerId === 30148 && " - Women's tournament"}
-          </h5>
+          </h4>
         </div>
         <div className="border font-bold border-white group-hover:border-red-500 transition-colors  border-t-0 p-1 text-center">
           REGISTER
