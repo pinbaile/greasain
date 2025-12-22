@@ -97,5 +97,29 @@ export const MACHINES: Machine[] = [
     year: '2020',
     location: LOCATIONS.BACK_PAGE,
     howTo: 'https://youtu.be/2_xcLBHzaSo?si=Lr1nx9h2c3m88QKr'
+  },
+  {
+    name: 'Twilight Zone',
+    url: 'https://www.ipdb.org/machine.cgi?id=2684',
+    manufacturer: 'Bally',
+    year: '1993',
+    location: LOCATIONS.BACK_PAGE,
+    howTo: 'https://www.youtube.com/watch?v=DYy0aNj9GLU'
+  },
+  {
+    name: 'Doctor Who',
+    url: 'https://www.ipdb.org/machine.cgi?id=738',
+    manufacturer: 'Bally',
+    year: '1992',
+    location: LOCATIONS.BACK_PAGE,
+    howTo: 'https://www.youtube.com/watch?v=iawmrs69jrQ'
+  },
+  {
+    name: "Red & Ted's Road Show",
+    url: 'https://www.ipdb.org/machine.cgi?id=1972',
+    manufacturer: 'Williams',
+    year: '1994',
+    location: LOCATIONS.BACK_PAGE,
+    howTo: 'https://www.youtube.com/watch?v=vEl6ywIOfdc'
   }
 ]

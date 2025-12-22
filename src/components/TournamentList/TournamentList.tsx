@@ -96,7 +96,7 @@ export const TournamentList = () => {
         Our Pinball Events
       </h2>
       <h3 className="text-2xl tracking-tight leading-6 font-source font-extrabold mb-4">
-        2025 Pinball Event Calendar - All skill levels welcome!
+        2026 Pinball Event Calendar - All skill levels welcome!
       </h3>
       {errorLoadingTournaments && (
         <p className="text-red-600 mb-2">
