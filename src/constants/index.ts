@@ -31,7 +31,7 @@ export const MACHINES: Machine[] = [
     url: 'https://sternpinball.com/game/black-knight/',
     manufacturer: 'Stern',
     year: '2019',
-    location: LOCATIONS.FIBBERS,
+    location: LOCATIONS.BACK_PAGE,
     howTo: 'https://www.youtube.com/watch?v=musEx6lbttQ'
   },
   {
@@ -71,7 +71,7 @@ export const MACHINES: Machine[] = [
     url: 'https://www.ipdb.org/machine.cgi?gid=6474',
     manufacturer: 'Stern',
     year: '2017',
-    location: LOCATIONS.FIBBERS,
+    location: LOCATIONS.BACK_PAGE,
     howTo: 'https://youtu.be/BOP6gXVB0VU?si=pNGgDcWO1Ji6wYRt'
   },
   {
@@ -103,7 +103,7 @@ export const MACHINES: Machine[] = [
     url: 'https://www.ipdb.org/machine.cgi?id=2684',
     manufacturer: 'Bally',
     year: '1993',
-    location: LOCATIONS.BACK_PAGE,
+    location: LOCATIONS.NONE,
     howTo: 'https://www.youtube.com/watch?v=DYy0aNj9GLU'
   },
   {
@@ -111,7 +111,7 @@ export const MACHINES: Machine[] = [
     url: 'https://www.ipdb.org/machine.cgi?id=738',
     manufacturer: 'Bally',
     year: '1992',
-    location: LOCATIONS.BACK_PAGE,
+    location: LOCATIONS.FIBBERS,
     howTo: 'https://www.youtube.com/watch?v=iawmrs69jrQ'
   },
   {
@@ -119,7 +119,23 @@ export const MACHINES: Machine[] = [
     url: 'https://www.ipdb.org/machine.cgi?id=1972',
     manufacturer: 'Williams',
     year: '1994',
-    location: LOCATIONS.BACK_PAGE,
+    location: LOCATIONS.NONE,
     howTo: 'https://www.youtube.com/watch?v=vEl6ywIOfdc'
+  },
+  {
+    name: 'John Wick (Pro)',
+    url: 'https://app.matchplay.events/opdb/entries/GQK1P-MW9pj',
+    manufacturer: 'Stern',
+    year: '2024',
+    location: LOCATIONS.FIBBERS,
+    howTo: 'https://www.youtube.com/watch?v=ilfCVAvlnZU'
+  },
+  {
+    name: 'King Kong: Myth of Terror Island (Pro)',
+    url: 'https://app.matchplay.events/opdb/entries/GEL0V-MBRyb',
+    manufacturer: 'Stern',
+    year: '2025',
+    location: LOCATIONS.BACK_PAGE,
+    howTo: 'https://www.youtube.com/watch?v=ydJbSPds95Y'
   }
 ]

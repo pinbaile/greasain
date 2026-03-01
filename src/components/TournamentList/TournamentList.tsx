@@ -56,11 +56,11 @@ const TournamentListItem = ({ tournament }: { tournament: Tournament }) => {
 export const TournamentList = () => {
   const [showAllTournaments, setShowAllTournaments] = useState(false)
   const openTournamentData = useData<Tournament[]>(
-    'https://app.matchplay.events/api/tournaments?owner=9817&status=planned&page=2',
+    'https://snowy-wind-eb12.asperellis.workers.dev/api/tournaments?owner=9817&status=planned&page=2',
     matchplayHeaders
   )
   const openTournamentData2 = useData<Tournament[]>(
-    'https://app.matchplay.events/api/tournaments?owner=9817&status=planned',
+    'https://snowy-wind-eb12.asperellis.workers.dev/api/tournaments?owner=9817&status=planned',
     matchplayHeaders
   )
   const {
@@ -68,7 +68,7 @@ export const TournamentList = () => {
     isLoading: loadingWomensTournaments,
     isError: errorLoadingWomensTournaments
   } = useData<Tournament[]>(
-    'https://app.matchplay.events/api/tournaments?owner=30148&status=planned',
+    'https://snowy-wind-eb12.asperellis.workers.dev/api/tournaments?owner=30148&status=planned',
     matchplayHeaders
   )
 
