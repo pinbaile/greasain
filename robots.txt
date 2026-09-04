@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://pinbaile.com/sitemap.xml
